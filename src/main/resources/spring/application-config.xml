@@ -8,5 +8,22 @@
     <!-- Uncomment and add your base-package here:
          <context:component-scan
             base-package="org.springframework.samples.service"/>  -->
+            
+    	
+	<bean id="personDAOTarget" class="br.com.efraimgentil.daos.PersonDAO" />
+	
+	<!-- AOP ADVICES -->
+	<bean id="beforeProfilador" class="br.com.efraimgentil.utils.AdiviceBeforeProfilador" />
+	<bean id="aroundProfilador" class="br.com.efraimgentil.utils.AdiviceAroundProfilador" />
+	
+	<bean id="personDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="personDAOTarget" />
+		<property name="interceptorNames">
+			<list>
+				<value>aroundProfilador</value>
+				<value>beforeProfilador</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>

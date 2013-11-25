@@ -10,8 +10,6 @@ public class AdiviceBeforeProfilador implements MethodBeforeAdvice{
 	@Override
 	public void before(Method method, Object[] args, Object tagert)
 			throws Throwable {
-		// TODO Auto-generated method stub
-		
 		if(method.getName().equals("persistAll") && args[1] != null){
 			File file = (File) args[1];
 			if(file.exists()){
