@@ -33,22 +33,21 @@ public class PersonDAOIT {
 		
 	}
 	
-	public static void main(String[] args) throws Exception {
-		
-		ApplicationContext context =
-				new ClassPathXmlApplicationContext("spring/application-config.xml");
-		
-		File file = new File("persons.txt");
-		Person[] persons = new Person[10];
-		
-		PersonDAO dao = context.getBean("personDAO", PersonDAO.class);
-
-		assert dao.getClass().equals( PersonDAO.class ) == false;
-		System.out.println( dao.getClass().equals( PersonDAO.class ) == false );
-		
-		
-		dao.persistAll(persons, file);
-		
-	}
+//	public static void main(String[] args) throws Exception {
+//		
+//		ApplicationContext context =
+//				new ClassPathXmlApplicationContext("spring/application-config.xml");
+//		
+//		File file = new File("persons.txt");
+//		Person[] persons = new Person[10];
+//		
+//		PersonDAO dao = context.getBean("personDAO", PersonDAO.class);
+//
+//		assert dao.getClass().equals( PersonDAO.class ) == false;
+//		System.out.println( dao.getClass().equals( PersonDAO.class ) == false );
+//		
+//		dao.persistAll(persons, file);
+//		
+//	}
 	
 }

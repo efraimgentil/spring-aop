@@ -8,8 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.efraimgentil.models.Person;
 
+@Repository
 public class PersonDAO {
 	
 	

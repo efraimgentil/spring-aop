@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <!-- Uncomment and add your base-package here:
-         <context:component-scan
-            base-package="org.springframework.samples.service"/>  -->
+    <context:component-scan
+            base-package="br.com.efraimgentil"/> 
+    
+    <!-- Informamos o container que iremos usar anotações -->
+    <context:annotation-config />        
             
-    	
+    <aop:aspectj-autoproxy />
+       	
 	<bean id="personDAOTarget" class="br.com.efraimgentil.daos.PersonDAO" />
 	
 	<!-- AOP ADVICES -->
-	<bean id="beforeProfilador" class="br.com.efraimgentil.utils.AdiviceBeforeProfilador" />
-	<bean id="aroundProfilador" class="br.com.efraimgentil.utils.AdiviceAroundProfilador" />
+<!-- 	<bean id="beforeProfilador" class="br.com.efraimgentil.utils.AdviceBeforeProfilador" /> -->
+<!-- 	<bean id="aroundProfilador" class="br.com.efraimgentil.utils.AdviceAroundProfilador" /> -->
+<!-- 	<bean id="afterThrows" class="br.com.efraimgentil.utils.AdviceAfterThrows" /> -->
 	
-	<bean id="personDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="personDAOTarget" />
-		<property name="interceptorNames">
-			<list>
-				<value>aroundProfilador</value>
-				<value>beforeProfilador</value>
-			</list>
-		</property>
-	</bean>
+<!-- 	<bean id="personDAO" class="org.springframework.aop.framework.ProxyFactoryBean"> -->
+<!-- 		<property name="target" ref="personDAOTarget" /> -->
+<!-- 		<property name="interceptorNames"> -->
+<!-- 			<list> -->
+<!-- 				<value>aroundProfilador</value> -->
+<!-- 				<value>beforeProfilador</value> -->
+<!-- 				<value>afterThrows</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
 </beans>
